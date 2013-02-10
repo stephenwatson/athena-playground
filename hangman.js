@@ -2,16 +2,18 @@ var word, gottenRight, i, guessedLetters, lives;
 word="I LOVE JS";
 lives = 6;
 //Initally they have nothing right
+gottenRight = new Array();
 for (i=0; i<word.length; i++)
 {
 	gottenRight[i] = false;
 }
+
 rewriteWord();//Displays very blank since program just starting
 
 //This funtion is called by the HTML page when the submit guess button is clicked
 function letterGuessed(){
 	//change it to upper case so it will match the word even if they enter lowercase
-	var letterGuessed = document.getElementById('guess')[].value.toUpperCase();
+	var letterGuessed = document.getElementById('guess')[0].value.toUpperCase();
 	updateLetters(letterGuessed);
 }
 
@@ -59,5 +61,6 @@ function rewriteWord(){
 			reWrittenWord += '_';
 		}
 	}
+	//THIS LINE DONT WORK
 	document.getElementById('wordDisplay').innerHTML =reWrittenWord;
 }
