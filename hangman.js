@@ -38,7 +38,6 @@ function updateLetters(guess){
 			}
 		}
 		else{
-			//ISSUE HERE
 			rewriteWord();
 		}
 	}
