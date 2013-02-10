@@ -1,1 +1,1 @@
-This is hangman, if you don't know how to play you wetre born under a rock.
+This is hangman, if you don't know how to play you were born under a rock.
