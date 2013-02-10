@@ -3,22 +3,22 @@
 <title>SimpleHangman
 </title>
 <head>
-<body>
+<body onload="rewriteWord()">
 <script src="hangman.js"></script>
 <span id="lifeImage">
 <img src="6lives.jpg">
 </span>
 </br>
-<span id="wordDisplay">
+<span id="wordDisplay"> 
 </span>
-
+<p>
 Enter a character here
-</br>
+</p>
 <textarea name="guess"  id="guess" cols="2" rows="2">
 </textarea>
   <input type="button" value="accept" onclick="letterGuessed()">
-</br>
-</br>
+<br />
+<br />
  <input type="button" value="replay" onclick="replay()">
 </body>
 </html>
