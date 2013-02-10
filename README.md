@@ -1,1 +1,1 @@
-This is a second readme for the hangman game
+This is hangman, if you don't know how to play you wetre born under a rock.
