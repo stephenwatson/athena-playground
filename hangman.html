@@ -6,9 +6,19 @@
 <body>
 <script  src="hangman.js">
 </script>
-<form action="demo_form.asp">
-  First name: <input type="text" name="fname"><br>
-  Last name: <input type="text" name="lname"><br>
-  <input type="submit" value="Submit">
-</form>
+<span id="lifeImage">
+<img src="6lives">
+</span>
+<span id="wordDisplay">
+</span>
+
+Enter a charachter here
+</br>
+<textarea name="guess"  id="guess" cols="2" rows="2">
+</textarea>
+  <input type="button" value="accept" onclick="letterGuessed()">
+</br>
+</br>
+ <input type="button" value="replay" onclick="replay()">
 </body>
+</html>
