@@ -6,6 +6,7 @@ for (i=0; i<word.length; i++)
 {
 	gottenRight[i] = false;
 }
+rewriteWord();//Displays very blank since program just starting
 
 //This funtion is called by the HTML page when the submit guess button is clicked
 function letterGuessed(){
@@ -31,7 +32,7 @@ function updateLetters(guess){
 		if (!correctGuess){
 			lives--;
 			//Change the image to the new number of lives image
-			document.getElementById('liveImage').innerHTML = "<img src=\""+lives+"lives.jpg\">";
+			document.getElementById('lifeImage').innerHTML = "<img src=\""+lives+"lives.jpg\">";
 			if (lives === 0){
 				document.writeln("<h1>You lose!</h1>");
 				//Should disable the button to submit a new letter here
