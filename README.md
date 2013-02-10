@@ -1,0 +1,1 @@
+This is a second readme for the hangman game
