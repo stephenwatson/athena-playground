@@ -49,7 +49,7 @@ function updateLetters(guess){
 function rewriteWord(){
 	var reWrittenWord = "";
 	for (i=0; i < gottenRight.length; i++){
-		if (gottenRight[i] === word.charAt(i)){
+		if (gottenRight[i]){
 			reWrittenWord += word.charAt(i);
 			reWrittenWord += " ";
 		}
