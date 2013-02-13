@@ -1,7 +1,7 @@
 var word, gottenRight, i, guessedLetters, lives;
-word="I LOVE JS";
+word = "I LOVE JS";
 lives = 6;
-//Initally they have nothing right
+// Initally they have nothing right
 gottenRight = new Array();
 for (i=0; i<word.length; i++)
 {
@@ -15,12 +15,12 @@ function letterGuessed(){
     updateLetters(letterGuessed);
 }
 
-//updates the gottenRight array
+// updates the gottenRight array
 function updateLetters(guess){
     var correctGuess = false;
-    //Check that guess has a value
+    // Check that guess has a value
     if (guess){
-        //Add their guess to the array of guessed letters
+        // Add their guess to the array of guessed letters
         guessedLetters += guess;
         for (i=0; i<word.length; i++)
         {
@@ -31,10 +31,10 @@ function updateLetters(guess){
         }
         if (!correctGuess){
             lives--;
-            //Change the image to the new number of lives image
-            document.getElementById('lifeImage').innerHTML = "<img src=\""+lives+"lives.jpg\">";
-            if (lives === 0){
-                //Should disable the button to submit a new letter here
+            // Change the image to the new number of lives image
+            document.getElementById('lifeImage').innerHTML = '<img src="' + lives + 'lives.jpg">';
+            if (lives === 0) {
+                // Should disable the button to submit a new letter here
             }
         }
         else{
@@ -43,7 +43,7 @@ function updateLetters(guess){
     }
 }
 
-//Reloads the word on the HTML page showing letters the user has correctly guess, 
+// Reloads the word on the HTML page showing letters the user has correctly guess, 
 // otherwise showing underscores
 function rewriteWord(){
     var reWrittenWord = "";
