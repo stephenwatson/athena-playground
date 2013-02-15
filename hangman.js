@@ -1,7 +1,8 @@
 var word, gottenRight, i, guessedLetters, lives;
 word = "I LOVE JS";
+guessedLetters = ""; 
 lives = 6;
-// Initally they have nothing right
+// Initally they have nothing correct
 gottenRight = new Array();
 for (i=0; i<word.length; i++)
 {
@@ -19,7 +20,7 @@ function letterGuessed(){
 function updateLetters(guess){
     var correctGuess = false;
     // Check that guess has a value
-    if (guess){
+    if (guess && guessedLetters.indexOf(guess) === -1){
         // Add their guess to the array of guessed letters
         guessedLetters += guess;
         for (i=0; i<word.length; i++)
@@ -37,9 +38,7 @@ function updateLetters(guess){
                 // Should disable the button to submit a new letter here
             }
         }
-        else{
-            rewriteWord();
-        }
+        rewriteWord();
     }
 }
 
@@ -60,5 +59,19 @@ function rewriteWord(){
             reWrittenWord += " ";
         }
     }
-    document.getElementById('wordDisplay').innerHTML ="<h1>"+reWrittenWord+"</h1>";
+    var innerHTML ="<h1>"+reWrittenWord+"</h1>";
+    innerHTML += "<br /> Letters Guessed: " + guessedLetters;
+    document.getElementById('wordDisplay').innerHTML = innerHTML;
+}
+
+// This function is called when the replay button is pressed and resets the game.
+function replay(){
+  guessedLetters = ""; 
+  lives = 6;
+  for (i=0; i<word.length; i++)
+  {
+      gottenRight[i] = false;
+  }
+  document.getElementById('lifeImage').innerHTML = '<img src="6lives.jpg">';
+  rewriteWord();
 }
