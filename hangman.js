@@ -83,9 +83,8 @@ function replay(){
 }
 
 
-// This function sets the word to a use generated word
+// This function sets the word to a user generated word
 function setWord(){
-  var newWord = document.getElementById('newWord').value.toUpperCase();
-  word = newWord;
+  word = document.getElementById('newWord').value.toUpperCase();
   replay();
 }
