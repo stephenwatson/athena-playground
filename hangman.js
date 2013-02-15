@@ -9,7 +9,7 @@ for (i=0; i<word.length; i++)
     gottenRight[i] = false;
 }
 
-//This funtion is called by the HTML page when the submit guess button is clicked
+// This funtion is called by the HTML page when the submit guess button is clicked
 function letterGuessed(){
     //change it to upper case so it will match the word even if they enter lowercase
     var letterGuessed = document.getElementById('guess').value.toUpperCase();
@@ -78,4 +78,12 @@ function replay(){
   }
   document.getElementById('lifeImage').innerHTML = '<img src="6lives.jpg">';
   rewriteWord();
+}
+
+
+// This function sets the word to a use generated word
+function setWord(){
+  var newWord = document.getElementById('newWord').value.toUpperCase();
+  word = newWord;
+  replay();
 }
