@@ -60,7 +60,11 @@ function rewriteWord(){
         }
     }
     var innerHTML ="<h1>"+reWrittenWord+"</h1>";
-    innerHTML += "<br /> Letters Guessed: " + guessedLetters;
+    // Write out letters guessed
+    innerHTML += "<br /> Letters Guessed: ";
+    for(i=0; i<guessedLetters.length; i++){
+      innerHTML+= guessedLetters.charAt(i) + " ";
+    }
     document.getElementById('wordDisplay').innerHTML = innerHTML;
 }
 
