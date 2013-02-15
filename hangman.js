@@ -3,11 +3,12 @@ word = "I LOVE JS";
 guessedLetters = ""; 
 lives = 6;
 // Initally they have nothing correct
-gottenRight = new Array();
+gottenRight = [];
 for (i=0; i<word.length; i++)
 {
     gottenRight[i] = false;
 }
+// Why can't i just called replay(); instead of initializing all the variables above???
 
 // This funtion is called by the HTML page when the submit guess button is clicked
 function letterGuessed(){
@@ -33,7 +34,8 @@ function updateLetters(guess){
         if (!correctGuess){
             lives--;
             // Change the image to the new number of lives image
-            document.getElementById('lifeImage').innerHTML = '<img src="' + lives + 'lives.jpg">';
+            document.getElementById('lifeImage').innerHTML = 
+              '<img src="' + lives + 'lives.jpg">';
             if (lives === 0) {
                 // Should disable the button to submit a new letter here
             }
