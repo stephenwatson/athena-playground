@@ -3,6 +3,12 @@
 		<title>
 			SimpleHangman
 		</title>
+        <style type="text/css">
+            textarea{
+            overflow:hidden;
+            resize: none;
+            }
+        </style>
 	<head>
 		<body onload="rewriteWord()">
 			<script src="hangman.js"></script>
@@ -16,7 +22,7 @@
 			<br />
 				Enter a character here
 			<br />
-				<textarea name="guess"  id="guess" cols="2" rows="2">
+				<textarea name="guess"  id="guess" cols="1" rows="1">
 				</textarea>
 			<br />
 				<input type="button" value="accept" onclick="letterGuessed()">
