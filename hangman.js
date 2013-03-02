@@ -1,4 +1,7 @@
-var word, gottenRight, i, guessedLetters, lives;
+var word, gottenRight, i, lettersGuessed, lives, LETTERS;
+LETTERS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
+'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
 
 // This funtion is called by the HTML page when the submit guess button is clicked
 function letterGuessed(){
@@ -11,9 +14,9 @@ function letterGuessed(){
 function updateLetters(guess){
     var correctGuess = false;
     // Check that guess has a value
-    if (guess && guessedLetters.indexOf(guess) === -1){
+    if (guess && !lettersGuessed[guess]){
         // Add their guess to the array of guessed letters
-        guessedLetters += guess;
+        lettersGuessed[guess] = true;
         for (i=0; i<word.length; i++)
         {
             if(guess.charAt(0) === word.charAt(i)){
@@ -54,21 +57,27 @@ function rewriteWord(){
     var innerHTML ="<h1>"+reWrittenWord+"</h1>";
     // Write out letters guessed
     innerHTML += "<br /> Letters Guessed: ";
-    for(i=0; i<guessedLetters.length; i++){
-      innerHTML+= guessedLetters.charAt(i) + " ";
+    for (var key in lettersGuessed){
+      if (lettersGuessed.hasOwnProperty(key) && lettersGuessed[key]){
+        innerHTML+= key + " ";
+      }
     }
     document.getElementById('wordDisplay').innerHTML = innerHTML;
 }
 
 // This function is called when the replay button is pressed and resets the game.
 function replay(){
-  guessedLetters = ""; 
+  lettersGuessed = {}; 
+  for (i = 0; i < LETTERS.length; i++) {
+    lettersGuessed[LETTERS[i]] = false;
+  }
   lives = 6;
   gottenRight = [];
   for (i=0; i<word.length; i++)
   {
       gottenRight[i] = false;
   }
+  
   document.getElementById('lifeImage').innerHTML = '<img src="6lives.jpg">';
   rewriteWord();
 }
