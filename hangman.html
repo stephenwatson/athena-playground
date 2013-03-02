@@ -1,34 +1,35 @@
 <html>
-<head>
-<title>SimpleHangman
-</title>
-<head>
-<body onload="rewriteWord()">
-<script src="hangman.js"></script>
-<span id="lifeImage">
-<img src="6lives.jpg">
-</span>
-</br>
-<span id="wordDisplay"> 
-</span>
-<br />
-<br />
-Enter a character here
-<br />
-<textarea name="guess"  id="guess" cols="2" rows="2">
-</textarea>
-<br />
-<input type="button" value="accept" onclick="letterGuessed()">
-<br />
-<br />
-Enter the word to be guessed here
-<br />
-<textarea name="newWord"  id="newWord" cols="10" rows="2">
-</textarea>
-<br/>
-  <input type="button" value="accept" onclick="setWord()">
- <br />
-<br />
- <input type="button" value="replay" onclick="replay()">
-</body>
+	<head>
+		<title>
+			SimpleHangman
+		</title>
+	<head>
+		<body onload="rewriteWord()">
+			<script src="hangman.js"></script>
+				<span id="lifeImage">
+					<img src="6lives.jpg">
+				</span>
+			</br>
+				<span id="wordDisplay"> 
+				</span>
+			<br />
+			<br />
+				Enter a character here
+			<br />
+				<textarea name="guess"  id="guess" cols="2" rows="2">
+				</textarea>
+			<br />
+				<input type="button" value="accept" onclick="letterGuessed()">
+			<br />
+			<br />
+				Enter the word to be guessed here
+			<br />
+				<textarea name="newWord"  id="newWord" cols="10" rows="2">
+				</textarea>
+			<br/>
+				<input type="button" value="accept" onclick="setWord()">
+			<br />
+			<br />
+				<input type="button" value="replay" onclick="replay()">
+		</body>
 </html>
