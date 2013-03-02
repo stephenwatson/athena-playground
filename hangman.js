@@ -1,14 +1,4 @@
 var word, gottenRight, i, guessedLetters, lives;
-word = "I LOVE JS";
-guessedLetters = ""; 
-lives = 6;
-// Initally they have nothing correct
-gottenRight = [];
-for (i=0; i<word.length; i++)
-{
-    gottenRight[i] = false;
-}
-// Why can't i just called replay(); instead of initializing all the variables above???
 
 // This funtion is called by the HTML page when the submit guess button is clicked
 function letterGuessed(){
@@ -74,6 +64,7 @@ function rewriteWord(){
 function replay(){
   guessedLetters = ""; 
   lives = 6;
+  gottenRight = [];
   for (i=0; i<word.length; i++)
   {
       gottenRight[i] = false;
@@ -88,3 +79,7 @@ function setWord(){
   word = document.getElementById('newWord').value.toUpperCase();
   replay();
 }
+
+//Because of variable hoisting code moved down here, below functions
+word = "I LOVE JS";
+replay();
