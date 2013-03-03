@@ -70,14 +70,17 @@ function rewriteWord(){
 // This function is called when the replay button is pressed and resets the game.
 function replay(){
   lettersGuessed = {};
+  for (i = 0; i < LETTERS.length; i++) {
+    lettersGuessed[LETTERS[i]] = false;
+  }
   
   // This function displays the letters guessed crossed out and the letters
   // not guessed normally at the top of the page
   lettersGuessed.htmlDisplay = function(){
     var result = "";
     for (i = 0; i < LETTERS.length; i++) {
-      if(lettersGuessed[LETTERS[i]]) {
-        results += LETTERS[i] + " ";
+      if(!lettersGuessed[LETTERS[i]]) {
+        result += LETTERS[i] + " ";
       }
       else{
         result += "<strike>" + LETTERS[i] + "</strike> ";
@@ -86,17 +89,14 @@ function replay(){
     document.getElementById('alphabet').innerHTML = result;
   };
   
-  for (i = 0; i < LETTERS.length; i++) {
-    lettersGuessed[LETTERS[i]] = false;
-  }
   lives = 6;
   gottenRight = [];
   for (i=0; i<word.length; i++)
   {
       gottenRight[i] = false;
-  }
+  } 
   document.getElementById('submitGuess').disabled = false;
-  
+  //ANYWHERE PAST HERE CANT CALL lettersGuessed.htmlDisplay();
   document.getElementById('lifeImage').innerHTML = '<img src="6lives.jpg">';
   rewriteWord();
 }
@@ -111,4 +111,3 @@ function setWord(){
 // Because of variable hoisting code moved down here, below functions
 word = "I LOVE JS";
 replay();
-lettersGuessed.htmlDisplay();
