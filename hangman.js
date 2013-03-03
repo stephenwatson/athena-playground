@@ -1,4 +1,4 @@
-var word, gottenRight, i, lettersGuessed, lives, LETTERS;
+var word, gottenRight, i, lettersGuessed, lives, LETTERS, key;
 // The letters constant is used to creating properties on the lettersGuessed object
 LETTERS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -30,7 +30,8 @@ function updateLetters(guess){
       // Change the image to the new number of lives image
       document.getElementById('lifeImage').innerHTML = '<img src="' + lives + 'lives.jpg">';
         if (lives === 0) {
-          // Should disable the button to submit a new letter here
+          //Dissallow submission of new guesses once game over
+          document.getElementById('submitGuess').disabled = true;
         }
       }
       rewriteWord();
@@ -57,8 +58,9 @@ function rewriteWord(){
   var innerHTML ="<h1>"+reWrittenWord+"</h1>";
   // Write out letters guessed
   innerHTML += "<br /> Letters Guessed: ";
-  for (var key in lettersGuessed){
-    if (lettersGuessed.hasOwnProperty(key) && lettersGuessed[key]){
+  for (key in lettersGuessed){
+    if (lettersGuessed.hasOwnProperty(key) && 
+      typeof lettersGuessed[key] !== 'function' && lettersGuessed[key]){
       innerHTML+= key + " ";
     }
   }
@@ -67,7 +69,23 @@ function rewriteWord(){
 
 // This function is called when the replay button is pressed and resets the game.
 function replay(){
-  lettersGuessed = {}; 
+  lettersGuessed = {};
+  
+  // This function displays the letters guessed crossed out and the letters
+  // not guessed normally at the top of the page
+  lettersGuessed.htmlDisplay = function(){
+    var result = "";
+    for (i = 0; i < LETTERS.length; i++) {
+      if(lettersGuessed[LETTERS[i]]) {
+        results += LETTERS[i] + " ";
+      }
+      else{
+        result += "<strike>" + LETTERS[i] + "</strike> ";
+      }
+    }
+    document.getElementById('alphabet').innerHTML = result;
+  };
+  
   for (i = 0; i < LETTERS.length; i++) {
     lettersGuessed[LETTERS[i]] = false;
   }
@@ -77,6 +95,7 @@ function replay(){
   {
       gottenRight[i] = false;
   }
+  document.getElementById('submitGuess').disabled = false;
   
   document.getElementById('lifeImage').innerHTML = '<img src="6lives.jpg">';
   rewriteWord();
@@ -89,6 +108,7 @@ function setWord(){
   replay();
 }
 
-//Because of variable hoisting code moved down here, below functions
+// Because of variable hoisting code moved down here, below functions
 word = "I LOVE JS";
 replay();
+lettersGuessed.htmlDisplay();
