@@ -1,7 +1,7 @@
 var word, gottenRight, i, lettersGuessed, lives, LETTERS, key;
 // The letters constant is used to creating properties on the lettersGuessed object
-LETTERS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
-'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
+'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
 
 // This funtion is called by the HTML page when the submit guess button is clicked
@@ -18,6 +18,7 @@ function updateLetters(guess){
   if (guess && !lettersGuessed[guess]){
     // Add their guess to the array of guessed letters
     lettersGuessed[guess] = true;
+    console.log(guess);
     for (i=0; i<word.length; i++) {
         if(guess.charAt(0) === word.charAt(i)){
           gottenRight[i] = true;
