@@ -18,12 +18,11 @@ function updateLetters(guess){
   if (guess && !lettersGuessed[guess]){
     // Add their guess to the array of guessed letters
     lettersGuessed[guess] = true;
-    for (i=0; i<word.length; i++)
-      {
+    for (i=0; i<word.length; i++) {
         if(guess.charAt(0) === word.charAt(i)){
           gottenRight[i] = true;
           correctGuess = true;
-      }
+        }
     }
     if (!correctGuess){
       lives--;
@@ -33,13 +32,13 @@ function updateLetters(guess){
           //Dissallow submission of new guesses once game over
           document.getElementById('submitGuess').disabled = true;
         }
-      }
-      rewriteWord();
     }
+    rewriteWord();
+  }
 }
 
 // Reloads the word on the HTML page showing letters the user has correctly guess, 
-// otherwise showing underscores
+// otherwise showing underscores.  Also calls the function to rewrite the alphabet
 function rewriteWord(){
   var reWrittenWord = "";
   for (i=0; i < gottenRight.length; i++){
@@ -65,6 +64,8 @@ function rewriteWord(){
     }
   }
   document.getElementById('wordDisplay').innerHTML = innerHTML;
+  // Rewrite the alphabet
+  lettersGuessed.htmlDisplay();
 }
 
 // This function is called when the replay button is pressed and resets the game.
@@ -84,6 +85,7 @@ function replay(){
       }
       else{
         result += "<strike>" + LETTERS[i] + "</strike> ";
+        //NEVER GETS HERE
       }
     }
     document.getElementById('alphabet').innerHTML = result;
@@ -95,8 +97,9 @@ function replay(){
   {
       gottenRight[i] = false;
   } 
-  document.getElementById('submitGuess').disabled = false;
-  //ANYWHERE PAST HERE CANT CALL lettersGuessed.htmlDisplay();
+  if(document.getElementById('submitGuess')) {
+    document.getElementById('submitGuess').disabled = false;
+  }
   document.getElementById('lifeImage').innerHTML = '<img src="6lives.jpg">';
   rewriteWord();
 }
@@ -110,4 +113,3 @@ function setWord(){
 
 // Because of variable hoisting code moved down here, below functions
 word = "I LOVE JS";
-replay();
