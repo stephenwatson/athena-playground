@@ -18,7 +18,6 @@ function updateLetters(guess){
   if (guess && !lettersGuessed[guess]){
     // Add their guess to the array of guessed letters
     lettersGuessed[guess] = true;
-    console.log(guess);
     for (i=0; i<word.length; i++) {
         if(guess.charAt(0) === word.charAt(i)){
           gottenRight[i] = true;
@@ -81,7 +80,7 @@ function replay(){
   lettersGuessed.htmlDisplay = function(){
     var result = "";
     for (i = 0; i < LETTERS.length; i++) {
-      if(!lettersGuessed[LETTERS[i]]) {
+      if(!this[LETTERS[i]]) {
         result += LETTERS[i] + " ";
       }
       else{
