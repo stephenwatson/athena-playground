@@ -2,3 +2,6 @@ textarea{
  overflow:hidden;
  resize: none;
 }
+.guessed {
+  text-decoration:line-through;
+}
