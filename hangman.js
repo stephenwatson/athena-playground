@@ -85,7 +85,6 @@ function replay(){
       }
       else{
         result += "<strike>" + LETTERS[i] + "</strike> ";
-        //NEVER GETS HERE
       }
     }
     document.getElementById('alphabet').innerHTML = result;
