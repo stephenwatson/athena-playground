@@ -74,20 +74,30 @@ function replay(){
   for (i = 0; i < LETTERS.length; i++) {
     lettersGuessed[LETTERS[i]] = false;
   }
+  //Reset alphabet by emptying it then adding the letters
+  $('#alphabet').html('');
+  for (i = 0; i < LETTERS.length; i++) {
+    $('#alphabet').append('<span id="'+LETTERS[i]+'">'+LETTERS[i]
+      +' </span>');
+  }
   
   // This function displays the letters guessed crossed out and the letters
   // not guessed normally at the top of the page
   lettersGuessed.htmlDisplay = function(){
     var result = "";
     for (i = 0; i < LETTERS.length; i++) {
-      if(!this[LETTERS[i]]) {
+      /*if(!this[LETTERS[i]]) {
         result += LETTERS[i] + " ";
       }
       else{
         result += "<strike>" + LETTERS[i] + "</strike> ";
-      }
+      }*/
+      if (lettersGuessed[LETTERS[i]])
+        $('#' + LETTERS[i]).addClass('guessed');
+      else
+        $('#' + LETTERS[i]).removeClass('guessed');
     }
-    document.getElementById('alphabet').innerHTML = result;
+    //document.getElementById('alphabet').innerHTML = result;
   };
   
   lives = 6;
