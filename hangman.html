@@ -3,10 +3,58 @@
 	  <!-- add the JQuery library for the JS code -->
 	  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	  <link rel="stylesheet" type="text/css" href="css.css">
+
+    <!--
+      - Style varies, but the standard is to make opening and closing tags fit
+      - all on one line if both of the following conditions are met:
+      -   a) everything fits on one line without surpassing 80 chars
+      -   b) there are no nested tags (ignoring inline text tags, like <b></b>)
+      -
+      - So here, just do:
+      -
+      -     <title>SimpleHangman</title>
+      -->
+
 		<title>
 			SimpleHangman
 		</title>
 	<head>
+
+    <!--
+      - Come, your indentation should have been fixed a long time ago. Why is
+      - this still not happening?
+      -
+      -     <html>
+      -       <head>
+      -         ...
+      -       </head>
+      -       <body>
+      -         <span id="alphabet"></span>
+      -         <span id="lifeImage">
+      -           <img src="6lives.jpg">
+      -         </span>
+      -         <br/>
+      -         <span id="wordDisplay"></span>
+      -         ...
+      -       </body>
+      -     </html>
+      -->
+
+      <!--
+        - Now that you're using jQuery, there's a better way to handle DOM
+        - events. Instead of putting handlers in html tags, put the handlers in
+        - your js file.
+        -
+        - Instead of `<body onload="replay()">` do `$(document).onReady(replay)`
+        - (Sidenote: listening for the document onready event, instead of the
+        - body onload event, is usually the optimal timing. If you're interested
+        - to learn why search google/stackoverflow for "onready vs onload".)
+        - Instead of `<input id="submitGuess" onclick="letterGuessed()">`, do
+        - `$('#submitGuess').click(letterGuessed)`. Read up on jQuery's events
+        - api and/or the documentation for individual event event handlers like
+        - the `click` method to learn more.
+        -->
+
 		<body onload="replay()">
             <span id="alphabet"> 
 			</span>
