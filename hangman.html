@@ -1,38 +1,34 @@
 <html>
 	<head>
-	  <!-- add the JQuery library for the JS code -->
-	  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	  <link rel="stylesheet" type="text/css" href="css.css">
-		<title>
-			SimpleHangman
-		</title>
+	    <!-- add the JQuery library for the JS code -->
+	    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	    <link rel="stylesheet" type="text/css" href="css.css">
+		<title>	SimpleHangman </title>
 	<head>
-		<body onload="replay()">
-            <span id="alphabet"> 
-			</span>
-            <script src="hangman.js"></script>
-			<span id="lifeImage">
-				<img src="6lives.jpg">
-			</span>
-			</br>
-				<span id="wordDisplay"> 
-				</span>
-			<br />
-			<br />
-				Enter a character here
-			<br />
-				<input type="text" size="1" maxlength="1" name="guess"  id="guess">
-			<br />
-				<input type="button" value="accept" id="submitGuess" onclick="letterGuessed()">
-			<br />
-			<br />
-				Enter the word to be guessed here
-			<br />
-				<input type="text" size="20" maxlength="20" name="newWord"  id="newWord">
-			<br/>
-				<input type="button" value="accept" onclick="setWord()">
-			<br />
-			<br />
-				<input type="button" value="replay" onclick="replay()">
-		</body>
+	<body onload="replay()">
+        <span id="alphabet"> </span>
+        <script src="hangman.js"></script>
+        <span id="lifeImage">
+		<img src="6lives.jpg">
+		</span>
+		</br>
+		<span id="wordDisplay"> </span>
+		<br />
+		<br />
+		Enter a character here
+		<br />
+		<input type="text" size="1" maxlength="1" name="guess"  id="guess">
+		<br />
+		<input type="button" value="accept" id="submitGuess" onclick="letterGuessed()">
+		<br />
+		<br />
+		Enter the word to be guessed here
+		<br />
+		<input type="text" size="20" maxlength="20" name="newWord"  id="newWord">
+		<br/>
+		<input type="button" value="accept" onclick="setWord()">
+		<br />
+		<br />
+		<input type="button" value="replay" onclick="replay()">
+	</body>
 </html>
