@@ -6,54 +6,27 @@ LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
 
 // This funtion is called by the HTML page when the submit guess button is clicked
 function letterGuessed(){
-  var letterGuessed = scrub($('#guess').val(),1).toUpperCase();
-  updateLetters(letterGuessed);
-}
-
-//This function scrubs the HTML data clean for security
-//@param toBeScrubbed this is the input that needs sanitizing
-//@param howMuchScrubbing optional param specifying how many chars of the 
-//string will be scrubbed & returned. Default entire string.
-scrub = function(toBeScrubbed, howMuchScrubbing){
-  var clean = "";
-  var j, isClean;
-  var disAllowed = ['<', '>', "'", '"', '{', '}', '&', '`',
-    '!', '@','$', '%', '`(', ')', '=', '+', '[', ']',' '];
-  if (howMuchScrubbing){
-    toBeScrubbed = toBeScrubbed.substring(0,howMuchScrubbing);
+  var letterGuessed = $('#guess').val();
+  // Clean the letterguess for security and take the first character
+  letterGuessed = letterGuessed.toUpperCase().match(/[A-Z]/)[0];
+  if (letterGuessed) {
+    updateLetters(letterGuessed);
   }
-  for (i=0;i<toBeScrubbed.length;i++){
-    isClean = true;
-    for (j = 0; j < disAllowed.length; j++) {
-      if(toBeScrubbed.charAt(i) === disAllowed[j]) {
-        isClean = false;
-      }
-    }
-    if (isClean)
-      clean += toBeScrubbed.charAt(i);
-  }
-  return clean;
 }
 
 // updates the gottenRight array
 function updateLetters(guess){
   var correctGuess = false;
   var correctIndex = [];
-  correctIndex[0] = -1;
   // Check that guess has a value
-  if (guess && !lettersGuessed[guess]){
+  if (lettersGuessed[guess] === false){
     // Add their guess to the array of guessed letters
     lettersGuessed[guess] = true;
     for (i=0; i<word.length; i++) {
       if(guess === word.charAt(i)){
         gottenRight[i] = true;
         correctGuess = true;
-        if (correctIndex[0] === -1) {
-          correctIndex[0] = i;
-        }
-        else {
-          correctIndex.push(i);
-        }
+        correctIndex.push(i);
       }
     }
     if (!correctGuess){
@@ -71,8 +44,7 @@ function updateLetters(guess){
 
 // Reloads the word on the HTML page showing letters the user has correctly guess, 
 // otherwise showing underscores.  Also calls the function to rewrite the alphabet
-// @param indexToUpdate the index of the letter to update, -1 at index 1 if no update.  
-// If not provided then it will update the entire word display to _'s and spaces
+// @param indexToUpdate the index of the letter to update
 function rewriteWord(indexToUpdate){
   var placeholder, displayWord, currentChar;
   // If not passed an index to update, update everything
@@ -87,7 +59,7 @@ function rewriteWord(indexToUpdate){
    $('#wordDisplay').html(displayWord.join('&emsp;'));
   }
   //If they got a letter right an index is passed to update
-  else if(indexToUpdate[0] !== -1) {
+  else {
     for (i=0;i<indexToUpdate.length;i++) {
       $('#wordIndex'+indexToUpdate[i]).html(word.charAt(indexToUpdate[i]));
     }
