@@ -1,0 +1,22 @@
+div {
+  height: 50px;
+  width: 300px;
+  text-align: center;
+  line-height: 50px;
+  border: 1px solid black;
+  margin-top: 2px;
+  background-color: #aaa;
+  opacity: 0.5;
+}
+
+div.selected {
+  opacity: 1.0;
+}
+
+div.red {
+  background-color: #a00;
+}
+
+input {
+  width: 200px;
+}
