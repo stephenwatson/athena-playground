@@ -111,6 +111,19 @@ htmlDisplay = function(){
   }
 };
 
+// This object stores all jQuery event functions
+eventFns = {
+  submitGuessClicked : function(){
+    letterGuessed();
+  },
+  setWordClicked: function(){
+    setWord();
+  },
+  replayClicked: function(){
+    replay();
+  }
+};
+
 // Because of variable hoisting code moved down here, below functions
 word = "I LOVE JS";
 $(document).ready(function(){
@@ -119,4 +132,9 @@ $(document).ready(function(){
       +' </span>');
   }
   replay();
+  
+  // Hook up the jQuery events to the eventFns object
+  $('#submitGuess').click(eventFns.submitGuessClicked);
+  $('#setWord').click(eventFns.setWordClicked);
+  $('#replay').click(eventFns.replayClicked);
 });
