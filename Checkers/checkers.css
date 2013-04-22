@@ -1,12 +1,33 @@
 #whiteSquare
 {
-  padding: 10px;
+  height: 50px;
   background-color:#FFFFF0;
   border: solid 1px #c3c3c3;
+  width: 50px;
+  float: left;
 }
-#whiteSquare
+#blackSquare
 {
-  padding: 10px;
+  height: 50px;
   background-color:#303030;/*maybe could use 383838*/
   border: solid 1px #c3c3c3;
+  width: 50px;
+  float: left;
+}
+/*Got the code for making circle c/o stackoverflow*/
+#greenPiece {
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px; 
+  background-color: 00FF00;
+}
+#pinkPiece {
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px; 
+  background-color: FF00FF;
 }
