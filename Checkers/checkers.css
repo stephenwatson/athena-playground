@@ -22,6 +22,7 @@
   -moz-border-radius: 25px;
   border-radius: 25px; 
   background-color: 00FF00;
+  z-index: 100;
 }
 #pinkPiece {
   width: 50px;
@@ -30,4 +31,5 @@
   -moz-border-radius: 25px;
   border-radius: 25px; 
   background-color: FF00FF;
+  z-index: 100;
 }

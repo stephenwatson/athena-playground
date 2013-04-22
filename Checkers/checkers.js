@@ -7,6 +7,7 @@ $(document).ready(function(){
         '<div id="blackSquare" style="margin:'+50*i+',0,0, '+j*50+'px;"> </div>';
       $('#board').append(squareHTML);
     }
+    //why does it take so many br's?
     $('#board').append('<br><br><br>');
   }
 });
